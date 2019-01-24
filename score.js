@@ -36,13 +36,22 @@ function runAnalysis() {
   });
   // Sort by distance
   knn.sort((item1, item2) => item1[0] - item2[0]);
-
+  console.log(knn);
   knn = knn.slice(0, k);
-
+  console.log(knn);
   knn = countValues(knn, 1);
+  console.log(knn);
+  let max = 0;
+  let maxIndex = -1;
 
+  for (const [key, value] of Object.entries(knn)) {
+    if (max < value) {
+      max = value;
+      maxIndex = key;
+    }
+  }
   
 
-  console.log(knn);
+  console.log(maxIndex);
 }
 
